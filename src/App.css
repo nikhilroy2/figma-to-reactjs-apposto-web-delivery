@@ -1,12 +1,114 @@
+/* 
+.................App structure................
+
+...color,
+#00000,
+#fffff,
+
+#D85C27,
+#C397C5,
+#E6E6E6,
+#4CAF50
+
+
+font size, font family, button design, icons */
+
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+}
+:root {
+  --text-white: #ffffff;
+  --text-white-50: rgba(255, 255, 255, 0.5);
+  --text-black: #000000;
+  --text-primary: #d85c27;
+  --text-secondary: #c397c5;
+  --text-info: #e6e6e6;
+  --text-success: #4caf50;
 }
 body {
   margin: 0;
   padding: 0;
 }
-.page_container{
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.page_container {
   max-width: 1440px;
   margin: auto;
+}
+
+/* Global Classes */
+
+/* // ...........Color ...... */
+.text-white {
+  color: var(--text-white);
+}
+.text-white-50 {
+  color: var(--text-white-50);
+}
+.text-black {
+  color: var(--text-black);
+}
+.text-primary {
+  color: var(--text-primary);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-info {
+  color: var(--text-info);
+}
+.text-success {
+  color: var(--text-success);
+}
+
+/* // ...........background ...... */
+.bg-white {
+  background: var(--text-white);
+}
+.bg-white-50 {
+  background: var(--text-white-50);
+}
+.bg-black {
+  background: var(--text-black);
+}
+.bg-primary {
+  background: var(--text-primary);
+}
+.bg-secondary {
+  background: var(--text-secondary);
+}
+.bg-info {
+  background: var(--text-info);
+}
+.bg-success {
+  background: var(--text-success);
+}
+small {
+  font-size: 10px;
+}
+
+/* // .......Button ..... */
+[class*="btn"] {
+  min-width: 100px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--text-white);
+}
+.btn-order {
+  background: #085394;
+  color: var(--text-white);
 }

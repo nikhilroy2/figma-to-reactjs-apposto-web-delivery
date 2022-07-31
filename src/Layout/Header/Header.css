@@ -1,1 +1,83 @@
-/* No CSS *//*# sourceMappingURL=Header.css.map */
+header {
+  height: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 68px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .logo img {
+  width: 159.65px;
+  height: 31.38px;
+  display: inline-block;
+}
+
+header menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header menu .social_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 52px;
+}
+
+header menu .social_list li a {
+  display: inline-block;
+  margin-right: 29px;
+}
+
+header menu .social_list li:last-child a {
+  margin-right: 0px;
+}
+
+header menu .notify_user {
+  padding: 0px 52px;
+  position: relative;
+}
+
+header menu .notify_user::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1px;
+  height: 25px;
+  background: var(--text-white);
+}
+
+header menu .header_btn {
+  padding-left: 52px;
+  position: relative;
+}
+
+header menu .header_btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1px;
+  height: 25px;
+  background: var(--text-white);
+}
+
+header menu .header_btn .btn-primary {
+  margin-right: 20px;
+}
+/*# sourceMappingURL=Header.css.map */

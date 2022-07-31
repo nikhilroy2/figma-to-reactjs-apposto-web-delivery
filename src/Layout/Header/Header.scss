@@ -1,3 +1,58 @@
-header{
-    
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 0 68px;
+  justify-content: space-between;
+  .logo {
+    img {
+      width: 159.65px;
+      height: 31.38px;
+      display: inline-block;
+    }
+  }
+  menu {
+    display: flex;
+    align-items: center;
+    .social_list {
+      display: flex;
+      padding-right: 52px;
+      li {
+        a {
+          display: inline-block;
+          margin-right: 29px;
+        }
+        &:last-child {
+          a {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+    @mixin lineBreak() {
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 25px;
+        background: var(--text-white);
+      }
+    }
+    .notify_user {
+      padding: 0px 52px;
+      position: relative;
+      @include lineBreak;
+    }
+    .header_btn {
+      padding-left: 52px;
+      position: relative;
+      @include lineBreak;
+      .btn-primary {
+        margin-right: 20px;
+      }
+    }
+  }
 }
