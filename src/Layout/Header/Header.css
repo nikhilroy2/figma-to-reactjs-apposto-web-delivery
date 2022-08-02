@@ -1,5 +1,5 @@
 header {
-  height: 90px;
+  min-height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,6 +10,29 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+}
+
+@media (max-width: 1000px) {
+  header {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 20px 30px;
+  }
+}
+
+header .toggle_btn {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  header .toggle_btn {
+    display: block;
+    min-width: auto;
+  }
 }
 
 header .logo img {
@@ -27,11 +50,57 @@ header menu {
           align-items: center;
 }
 
+@media (max-width: 1000px) and (min-width: 600px) {
+  header menu {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin: 0px 0px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  header menu {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-left: 0px;
+    display: none;
+  }
+  header menu.menu_toggle_on {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: calc(100% - 15px);
+    background: #000;
+    left: 0px;
+    padding: 20px 30px;
+  }
+}
+
 header menu .social_list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding-right: 52px;
+}
+
+@media (max-width: 1000px) and (min-width: 600px) {
+  header menu .social_list {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  header menu .social_list {
+    padding-right: 0px;
+    width: 100%;
+  }
 }
 
 header menu .social_list li a {
@@ -48,6 +117,15 @@ header menu .notify_user {
   position: relative;
 }
 
+@media (max-width: 600px) {
+  header menu .notify_user {
+    padding: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
 header menu .notify_user::before {
   content: "";
   position: absolute;
@@ -58,6 +136,40 @@ header menu .notify_user::before {
   width: 1px;
   height: 25px;
   background: var(--text-white);
+}
+
+@media (max-width: 1000px) {
+  header menu .notify_user::before {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 600px) {
+  header menu .notify_user {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    padding: 0px;
+    padding-left: 15px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  header menu .notify_user ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  header menu .notify_user ul li:first-child {
+    margin-right: 15px;
+    margin-bottom: 0px !important;
+  }
 }
 
 header menu .header_btn {
@@ -75,6 +187,34 @@ header menu .header_btn::before {
   width: 1px;
   height: 25px;
   background: var(--text-white);
+}
+
+@media (max-width: 1000px) {
+  header menu .header_btn::before {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 600px) {
+  header menu .header_btn {
+    width: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  header menu .header_btn {
+    padding-left: 0px;
+    position: static;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
 }
 
 header menu .header_btn .btn-primary {

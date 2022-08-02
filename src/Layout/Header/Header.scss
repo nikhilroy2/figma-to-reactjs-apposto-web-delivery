@@ -1,9 +1,25 @@
 header {
-  height: 90px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   padding: 0 68px;
   justify-content: space-between;
+  position: relative;
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+    padding: 20px 30px;
+  }
+  .toggle_btn {
+    display: none;
+  }
+  @media (max-width: 600px) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    .toggle_btn {
+      display: block;
+      min-width: auto;
+    }
+  }
+
   .logo {
     img {
       width: 159.65px;
@@ -14,9 +30,38 @@ header {
   menu {
     display: flex;
     align-items: center;
+
+    @media (max-width: 1000px) and (min-width: 600px) {
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 0;
+      margin: 0px 0px;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+      padding-left: 0px;
+      display: none;
+      &.menu_toggle_on {
+        display: flex;
+        position: absolute;
+        top: calc(100% - 15px);
+        background: #000;
+        left: 0px;
+        padding: 20px 30px;
+      }
+    }
     .social_list {
       display: flex;
       padding-right: 52px;
+      @media (max-width: 1000px) and (min-width: 600px) {
+        order: 2;
+        padding-right: 0px;
+      }
+      @media (max-width: 600px) {
+        padding-right: 0px;
+        width: 100%;
+      }
       li {
         a {
           display: inline-block;
@@ -39,17 +84,53 @@ header {
         width: 1px;
         height: 25px;
         background: var(--text-white);
+        @media (max-width: 1000px) {
+          display: none;
+        }
       }
     }
     .notify_user {
       padding: 0px 52px;
+      @media (max-width: 600px) {
+        padding: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
       position: relative;
       @include lineBreak;
+      @media (max-width: 1000px) and (min-width: 600px) {
+        order: 3;
+        padding: 0px;
+        padding-left: 15px;
+        flex: 1;
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          li:first-child {
+            margin-right: 15px;
+            margin-bottom: 0px !important;
+          }
+        }
+      }
     }
     .header_btn {
       padding-left: 52px;
       position: relative;
       @include lineBreak;
+      @media (max-width: 1000px) and (min-width: 600px) {
+        width: 100%;
+        justify-content: end;
+        position: absolute;
+        top: 25px;
+        right: 30px;
+      }
+      @media (max-width: 600px) {
+        padding-left: 0px;
+        position: static;
+        justify-content: start;
+      }
       .btn-primary {
         margin-right: 20px;
       }

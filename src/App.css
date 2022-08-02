@@ -11,7 +11,10 @@
 #4CAF50
 
 
+
 font size, font family, button design, icons */
+
+/* max-width: 1000px */
 
 * {
   box-sizing: border-box;
@@ -96,6 +99,10 @@ small {
 }
 
 /* // .......Button ..... */
+button {
+  background: transparent;
+  cursor: pointer;
+}
 [class*="btn"] {
   min-width: 100px;
   height: 40px;

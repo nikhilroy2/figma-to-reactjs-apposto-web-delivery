@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
-
 function Header(props) {
+    const [toggle, setToggle] = useState(false);
     return (
         <header className='bg-black'>
             <a href="#" id="logo">
                 <img src={require('./logo.png')} alt="img" />
             </a>
-
-            <menu>
+            <button className="toggle_btn" onClick={() => setToggle(!toggle)}>
+                {
+                    toggle ? <i class="fas text-white fa-2x fa-times    "></i> : <i className="text-white fas fa-bars fa-2x"></i>
+                }
+                {/* <i className="text-white fas fa-bars fa-2x"></i> */}
+                {/* <i class="fas text-white fa-2x fa-times    "></i> */}
+            </button>
+            <menu className={toggle ? 'menu_toggle_on' : ""}>
                 <SocialList></SocialList>
                 <NotifyUser></NotifyUser>
                 <HeaderBtn></HeaderBtn>
@@ -78,13 +84,13 @@ const NotifyUser = () => {
     return (
         <div className="notify_user text-white">
             <ul>
-                <li style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                    <svg style={{marginRight: '10px'}} width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                    <svg style={{ marginRight: '10px' }} width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M0 7C0 3.13401 3.13401 0 7 0C10.8641 0.00455859 13.9954 3.1359 14 7C14 10.866 10.866 14 7 14C3.13401 14 0 10.866 0 7ZM8.45918 9.359C8.70768 9.60742 9.1105 9.60742 9.359 9.359C9.60742 9.1105 9.60742 8.70768 9.359 8.45918L7.63636 6.73655V3.18182C7.63636 2.83036 7.35145 2.54545 7 2.54545C6.64855 2.54545 6.36364 2.83036 6.36364 3.18182V7C6.36367 7.16876 6.43074 7.3306 6.55009 7.44991L8.45918 9.359Z" fill="white" />
                     </svg> <small>Open everyday till 2:00 am</small>
                 </li>
-                <li style={{display: 'flex', alignItems: 'center'}}>
-                    <svg style={{marginRight: '10px'}} width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li style={{ display: 'flex', alignItems: 'center' }}>
+                    <svg style={{ marginRight: '10px' }} width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.22222C0 2.78578 2.78578 0 6.22222 0C9.65866 0 12.4444 2.78578 12.4444 6.22222C12.4444 11.2593 6.22222 16 6.22222 16C6.22222 16 0 11.2593 0 6.22222ZM3.25926 6.22222C3.25926 7.85862 4.58582 9.18518 6.22222 9.18518C7.85862 9.18518 9.18518 7.85862 9.18518 6.22222C9.18518 4.58582 7.85862 3.25926 6.22222 3.25926C4.58582 3.25926 3.25926 4.58582 3.25926 6.22222Z" fill="white" />
                     </svg>
                     <small>62-A Clements Road, West Midlands</small>
