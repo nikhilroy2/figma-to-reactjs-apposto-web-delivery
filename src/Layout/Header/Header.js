@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Header.css';
+import { UseContext } from '../../App';
+
+export const HeaderContext = React.createContext();
+
 function Header(props) {
     const [toggle, setToggle] = useState(false);
+    const data = useContext(UseContext);
+    //console.log(data)
+
     return (
-        <header className='bg-black'>
-            <a href="#" id="logo">
-                <img src={require('./logo.png')} alt="img" />
-            </a>
-            <button className="toggle_btn" onClick={() => setToggle(!toggle)}>
-                {
-                    toggle ? <i class="fas text-white fa-2x fa-times    "></i> : <i className="text-white fas fa-bars fa-2x"></i>
-                }
-                {/* <i className="text-white fas fa-bars fa-2x"></i> */}
-                {/* <i class="fas text-white fa-2x fa-times    "></i> */}
-            </button>
-            <menu className={toggle ? 'menu_toggle_on' : ""}>
-                <SocialList></SocialList>
-                <NotifyUser></NotifyUser>
-                <HeaderBtn></HeaderBtn>
-            </menu>
-        </header>
+        <HeaderContext.Provider value="header value">
+            <header className='bg-black'>
+                <a href="#" id="logo">
+                    <img src={require('./logo.png')} alt="img" />
+                </a>
+                <button className="toggle_btn" onClick={() => setToggle(!toggle)}>
+                    {
+                        toggle ? <i className="fas text-white fa-2x fa-times    "></i> : <i className="text-white fas fa-bars fa-2x"></i>
+                    }
+                    {/* <i className="text-white fas fa-bars fa-2x"></i> */}
+                    {/* <i className="fas text-white fa-2x fa-times    "></i> */}
+                </button>
+                <menu className={toggle ? 'menu_toggle_on' : ""}>
+                    <SocialList></SocialList>
+                    <NotifyUser></NotifyUser>
+                    <HeaderBtn></HeaderBtn>
+                </menu>
+            </header>
+        </HeaderContext.Provider>
     );
 }
 
@@ -51,7 +60,7 @@ const SocialList = () => {
             link: '#',
             alt: 'Tumblr',
             icon: <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.32051 0V3.5H9.82051V6.3H6.32051V10.1605C6.32051 13.6801 8.78451 13.2594 10.5205 12.1191V15.2222C5.81091 17.4426 2.12051 15.1774 2.12051 12.2437V6.3H0.0205078V4.3176C0.652608 4.1125 1.59201 3.8178 2.04281 3.4349C2.49501 3.0492 2.85621 2.5893 3.12851 2.0517C3.40221 1.5148 3.59051 0.8302 3.69271 0H6.32051V0Z" fill="white" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M6.32051 0V3.5H9.82051V6.3H6.32051V10.1605C6.32051 13.6801 8.78451 13.2594 10.5205 12.1191V15.2222C5.81091 17.4426 2.12051 15.1774 2.12051 12.2437V6.3H0.0205078V4.3176C0.652608 4.1125 1.59201 3.8178 2.04281 3.4349C2.49501 3.0492 2.85621 2.5893 3.12851 2.0517C3.40221 1.5148 3.59051 0.8302 3.69271 0H6.32051V0Z" fill="white" />
             </svg>
         },
         {
@@ -60,7 +69,7 @@ const SocialList = () => {
             link: '#',
             alt: 'Vimeo',
             icon: <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.942 2.77444C15.8726 4.12683 14.7866 5.97554 12.6915 8.32139C10.5233 10.7743 8.68607 12 7.18463 12C6.25619 12 5.46936 11.2543 4.82695 9.758C4.39649 8.38516 3.96885 7.01233 3.53933 5.64358C3.06104 4.14646 2.54899 3.39831 2.0013 3.39831C1.8822 3.39831 1.46675 3.61662 0.750255 4.05406L0 3.21106C0.785892 2.61009 1.56053 2.00666 2.32485 1.40487C3.37146 0.61502 4.15829 0.200471 4.68347 0.157135C5.92139 0.0524757 6.68477 0.790815 6.97268 2.3697C7.27935 4.0745 7.49504 5.13418 7.61415 5.54955C7.97239 6.96245 8.3644 7.66726 8.79392 7.66726C9.12685 7.66726 9.62764 7.21101 10.2954 6.2977C10.9631 5.38275 11.3185 4.68774 11.3673 4.2086C11.463 3.41875 11.1056 3.02627 10.2954 3.02627C9.91368 3.02627 9.51979 3.09659 9.11559 3.24377C9.90336 1.02058 11.4039 -0.0603602 13.6209 0.00259896C15.263 0.0426639 16.0386 0.968245 15.942 2.77444Z" fill="white" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M15.942 2.77444C15.8726 4.12683 14.7866 5.97554 12.6915 8.32139C10.5233 10.7743 8.68607 12 7.18463 12C6.25619 12 5.46936 11.2543 4.82695 9.758C4.39649 8.38516 3.96885 7.01233 3.53933 5.64358C3.06104 4.14646 2.54899 3.39831 2.0013 3.39831C1.8822 3.39831 1.46675 3.61662 0.750255 4.05406L0 3.21106C0.785892 2.61009 1.56053 2.00666 2.32485 1.40487C3.37146 0.61502 4.15829 0.200471 4.68347 0.157135C5.92139 0.0524757 6.68477 0.790815 6.97268 2.3697C7.27935 4.0745 7.49504 5.13418 7.61415 5.54955C7.97239 6.96245 8.3644 7.66726 8.79392 7.66726C9.12685 7.66726 9.62764 7.21101 10.2954 6.2977C10.9631 5.38275 11.3185 4.68774 11.3673 4.2086C11.463 3.41875 11.1056 3.02627 10.2954 3.02627C9.91368 3.02627 9.51979 3.09659 9.11559 3.24377C9.90336 1.02058 11.4039 -0.0603602 13.6209 0.00259896C15.263 0.0426639 16.0386 0.968245 15.942 2.77444Z" fill="white" />
             </svg>
 
         },
@@ -91,7 +100,7 @@ const NotifyUser = () => {
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center' }}>
                     <svg style={{ marginRight: '10px' }} width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.22222C0 2.78578 2.78578 0 6.22222 0C9.65866 0 12.4444 2.78578 12.4444 6.22222C12.4444 11.2593 6.22222 16 6.22222 16C6.22222 16 0 11.2593 0 6.22222ZM3.25926 6.22222C3.25926 7.85862 4.58582 9.18518 6.22222 9.18518C7.85862 9.18518 9.18518 7.85862 9.18518 6.22222C9.18518 4.58582 7.85862 3.25926 6.22222 3.25926C4.58582 3.25926 3.25926 4.58582 3.25926 6.22222Z" fill="white" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M0 6.22222C0 2.78578 2.78578 0 6.22222 0C9.65866 0 12.4444 2.78578 12.4444 6.22222C12.4444 11.2593 6.22222 16 6.22222 16C6.22222 16 0 11.2593 0 6.22222ZM3.25926 6.22222C3.25926 7.85862 4.58582 9.18518 6.22222 9.18518C7.85862 9.18518 9.18518 7.85862 9.18518 6.22222C9.18518 4.58582 7.85862 3.25926 6.22222 3.25926C4.58582 3.25926 3.25926 4.58582 3.25926 6.22222Z" fill="white" />
                     </svg>
                     <small>62-A Clements Road, West Midlands</small>
                 </li>
